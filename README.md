@@ -2,6 +2,10 @@
 
 The best knitting bot for your all men knitting circle.
 
+## requirements
+
+Python 3.7.x
+
 ## deployment on AWS Lambda
 
 Add token to config.py (see config.py.example).
@@ -30,6 +34,10 @@ Zappa shows the url it is deployed to.
 Set webhook url:
 
     ./setwebhook URL
+    
+## Smoke testing
+
+python ./breimachine.py
 
 ## Available morbid commands
 
