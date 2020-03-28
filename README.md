@@ -21,6 +21,16 @@ Deploy:
 
     zappa deploy
     
+Or update:
+
+    zappa update
+
+Zappa shows the url it is deployed to.
+
+Set webhook url:
+
+    ./setwebhook URL
+
 ## Available morbid commands
 
  *   /stats (show covid-19 stats for Netherlands)
