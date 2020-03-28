@@ -1,0 +1,10 @@
+{
+    "production": {
+        "app_function": "breimachine.app",
+        "aws_region": "eu-west-1",
+        "profile_name": "default",
+        "project_name": "breimachine",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-zssyakumq"
+    }
+}
