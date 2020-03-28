@@ -9,17 +9,22 @@ app = Flask(__name__)
 bot = telegram.Bot(token=TOKEN)
 dispatcher = Dispatcher(bot, None)
 
-def get_stats_for(target_country="Netherlands"):
-    countries=get("https://api.covid19api.com/summary").json()["Countries"]
-    for country in countries:
-        if country["Country"] == target_country:
-            return country
-    return "Not found"
+def get_stats_for(country="Netherlands"):
+    for stats in get("https://api.covid19api.com/summary").json()["Countries"]:
+        if stats["Country"] == country:
+            return stats
+    return None 
         
-        
+def report_stats_for(country="Netherlands"):
+    stats = get_stats_for(country)
+    report = "Corona (COVID-19) stats for {}:\n\n".format(country)
+    for k,v in stats.items():
+        report += "    {}: {}\n".format(k, v)
+    return report
     
 def stats(bot, update):
-    update.message.reply_text(str(get_stats_for()))
+    report = report_stats_for()
+    update.message.reply_text(report)
 
 @app.route('/', methods=['POST'])
 def webhook():
